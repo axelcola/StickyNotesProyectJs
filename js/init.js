@@ -1,6 +1,8 @@
+// notes array
 let note = {
     "number": 0,
 }
+// add note function
 addNewNote = () => {
     let addNote = document.getElementById("newTask").value;
     let stickyToAppend = "";
@@ -20,6 +22,7 @@ addNewNote = () => {
         
     }
 };
+// delete function
 deleteNote = (id) => {
     document.getElementById(id).remove();
 }
