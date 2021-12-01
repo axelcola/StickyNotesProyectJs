@@ -27,9 +27,14 @@
   </nav>
   <main role="main" class="pb-5">
     <!-- seacher -->
-    <div class="text-center p-4">
+    <div class="text-center p-4 title">
       <h2>Sticky Notes App</h2>
       <p class="lead">Let's do it!</p>
+      <!-- toggle swwitch -->
+      <label class="switch">
+        <input id="night" type="checkbox">
+        <span class="slider round"></span>
+      </label>
     </div>
     <div class="container">
       <div class="row justify-content-end">
@@ -47,8 +52,8 @@
         <!-- addNote -->
         <div id="newNote" class="note">
           <textarea id="newTask" placeholder="Add a new task.."></textarea>
-          <div class="note-content" 
-            <span onclick="addNewNote()" type="button" class="icon"><i class="fas fa-save"></i></span>
+          <div class="note-content" <span onclick="addNewNote()" type="button" class="icon"><i
+              class="fas fa-save"></i></span>
           </div>
         </div>
       </div>
