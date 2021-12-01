@@ -1,4 +1,12 @@
 // notes array
+let today = new Date();
+let dd = today.getDate();
+let mm = today.getMonth() + 1;
+let yyyy = today.getFullYear();
+let hour = today.getHours();
+let minute = today.getMinutes();
+let second = today.getSeconds();
+let currentDate = `${yyyy}-${mm}-${dd} ${hour}:${minute}:${second}`;
 let note = {
     "number": 0,
 }
@@ -12,7 +20,7 @@ addNewNote = () => {
                 <div id="noteId${note.number}" class="note">
                     <span>${addNote}</span>
                     <div class="note-content">
-                      <small>22/42/38</small>
+                      <small>${currentDate}</small>
                       <span onclick="deleteNote('noteId${note.number}')" type="button" class="fas fa-trash-alt"></span>
                     </div>
                 </div>
