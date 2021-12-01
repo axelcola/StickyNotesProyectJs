@@ -6,7 +6,7 @@ let yyyy = today.getFullYear();
 let hour = today.getHours();
 let minute = today.getMinutes();
 let second = today.getSeconds();
-let currentDate = `${yyyy}-${mm}-${dd} ${hour}:${minute}:${second}`;
+let currentDate = `${mm}/${dd}/${yyyy}`;
 let note = {
     "number": 0,
 }
