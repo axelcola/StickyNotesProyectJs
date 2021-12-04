@@ -7,7 +7,8 @@ let hour = today.getHours();
 let minute = today.getMinutes();
 let second = today.getSeconds();
 let currentDate = `${mm}/${dd}/${yyyy}`;
-// The first note number is 1
+
+// The first noteNumber is 1
 let noteNumber = 0;
 
 let stickerData = [];
@@ -48,7 +49,7 @@ deleteNote = (id) => {
   localStorage.setItem("stickerJSON", JSON.stringify(newStickerarray));
   console.log(noteNumber);
 };
-
+//showNotes after refresh the page
 showNotes = () => {
   noteNumber = 0;
   stickerData = JSON.parse(localStorage.getItem("stickerJSON"));
@@ -73,6 +74,38 @@ showNotes = () => {
     document.getElementById("noteList").innerHTML += stickyToAppend;
   }
 };
+searcher = () => {
+  let searchValue = document.getElementById("searcher");
+  let htmltoappend = "";
+  for (let i = 0; i < stickerData.length; i++) {
+    let noteData = stickerData[i];
+    if (
+      noteData.content
+        .toUpperCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .includes(searchValue.toUpperCase())
+    ) {
+      let addNoteContent = document.getElementById("newTask").value;
+      let stickyToAppend = "";
+      noteNumber++;
+      addNoteContent = noteData.content;
+      noteId = noteData.name;
+      noteDate = noteData.Date;
+      stickyToAppend = `
+        <div id="${noteId}" class="note col-md-4 col-lg-3 col-sm-6 mb-5">
+            <span>${addNoteContent}</span>
+            <div class="note-content">
+              <small>${noteDate}</small>
+              <span onclick="deleteNote('${noteId}')" type="button" class="fas fa-trash-alt"></span>
+            </div>
+        </div>
+    `;
+      document.getElementById("noteList").innerHTML += stickyToAppend;
+    }
+  }
+};
+// when the load page
 document.addEventListener("DOMContentLoaded", function (e) {
   if (localStorage.stickerJSON != undefined) {
     showNotes();
