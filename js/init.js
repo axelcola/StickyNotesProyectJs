@@ -7,30 +7,74 @@ let hour = today.getHours();
 let minute = today.getMinutes();
 let second = today.getSeconds();
 let currentDate = `${mm}/${dd}/${yyyy}`;
-let note = {
-    "number": 0,
-}
-// add note function
+// The first note number is 1
+let noteNumber = 0;
+
+let stickerData = [];
+
+// addNote function
 addNewNote = () => {
-    let addNote = document.getElementById("newTask").value;
-    let stickyToAppend = "";
-    if (addNote != ""){
-    note.number ++;
-        stickyToAppend = `
-                <div id="noteId${note.number}" class="note">
-                    <span>${addNote}</span>
-                    <div class="note-content">
-                      <small>${currentDate}</small>
-                      <span onclick="deleteNote('noteId${note.number}')" type="button" class="fas fa-trash-alt"></span>
-                    </div>
-                </div>
-            `
-        document.getElementById("noteList").innerHTML += stickyToAppend;
-        document.getElementById("newTask").value = "";
-        
-    }
+  let noteData = {};
+  let addNoteContent = document.getElementById("newTask").value;
+  let stickyToAppend = "";
+  if (addNoteContent != "") {
+    noteNumber++;
+    noteData.content = addNoteContent;
+    noteData.name = ` noteId${noteNumber} `;
+    noteData.Date = currentDate;
+    stickyToAppend = `
+        <div id="noteId${noteNumber}" class="note col-md-4 col-lg-3 col-sm-6 mb-5">
+            <span>${addNoteContent}</span>
+            <div class="note-content">
+              <small>${currentDate}</small>
+              <span onclick="deleteNote('noteId${noteNumber}')" type="button" class="fas fa-trash-alt"></span>
+            </div>
+        </div>
+    `;
+    document.getElementById("noteList").innerHTML += stickyToAppend;
+    document.getElementById("newTask").value = "";
+    stickerData.push(noteData);
+    localStorage.setItem("stickerJSON", JSON.stringify(stickerData));
+    console.log(stickerData);
+  }
 };
+
 // delete function
 deleteNote = (id) => {
-    document.getElementById(id).remove();
-}
+  document.getElementById(id).remove();
+  noteNumber--;
+  let newStickerarray = stickerData.filter((item) => item.name !== id);
+  console.log("newStickerArray", newStickerarray);
+  localStorage.setItem("stickerJSON", JSON.stringify(newStickerarray));
+  console.log(noteNumber);
+};
+
+showNotes = () => {
+  noteNumber = 0;
+  stickerData = JSON.parse(localStorage.getItem("stickerJSON"));
+  for (let i = 0; i < stickerData.length; i++) {
+    let noteData = stickerData[i];
+
+    let addNoteContent = document.getElementById("newTask").value;
+    let stickyToAppend = "";
+    noteNumber++;
+    addNoteContent = noteData.content;
+    noteId = noteData.name;
+    noteDate = noteData.Date;
+    stickyToAppend = `
+        <div id="${noteId}" class="note col-md-4 col-lg-3 col-sm-6 mb-5">
+            <span>${addNoteContent}</span>
+            <div class="note-content">
+              <small>${noteDate}</small>
+              <span onclick="deleteNote('${noteId}')" type="button" class="fas fa-trash-alt"></span>
+            </div>
+        </div>
+    `;
+    document.getElementById("noteList").innerHTML += stickyToAppend;
+  }
+};
+document.addEventListener("DOMContentLoaded", function (e) {
+  if (localStorage.stickerJSON != undefined) {
+    showNotes();
+  }
+});

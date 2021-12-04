@@ -1,17 +1,20 @@
-.jumbotron, .card-body, .container, .site-header{
-    font-family: 'Raleway', serif !important;
+.jumbotron,
+.card-body,
+.container,
+.site-header {
+  font-family: "Raleway", serif !important;
 }
 
-.jumbotron .display-4{
-    font-weight: bold;
+.jumbotron .display-4 {
+  font-weight: bold;
 }
 
 .jumbotron {
   height: 50vh;
   padding: 5em inherit;
   margin-bottom: 0;
-  background-color: #53C0FB;
-  background: url('../img/cover_back.png');
+  background-color: #53c0fb;
+  background: url("../img/cover_back.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -41,12 +44,12 @@
   text-shadow: 1px 1px 2px grey;
 }
 
-.jumbotron .lead{
+.jumbotron .lead {
   font-size: 38px;
 }
 
-.searchContainer{
-  margin: 40px 40px 300px 40px ;
+.searchContainer {
+  margin: 40px 40px 300px 40px;
 }
 
 footer {
@@ -55,12 +58,12 @@ footer {
 }
 
 footer p {
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
 
 .site-header a {
   color: white;
-  transition: ease-in-out color .15s;
+  transition: ease-in-out color 0.15s;
 }
 
 .light-text {
@@ -71,15 +74,15 @@ footer p {
   color: black;
 }
 
-.dropzone{
-  border: 2px dashed #0087F7;
+.dropzone {
+  border: 2px dashed #0087f7;
   border-radius: 5px;
   background: white;
 }
 
-.alert{
+.alert {
   position: fixed;
-  top:80px;
+  top: 80px;
   width: 50%;
   left: 50%;
   transform: translate(-50%, 0);
@@ -90,7 +93,7 @@ footer p {
   position: relative;
   width: 64px;
   height: 64px;
-  top:50%;
+  top: 50%;
   left: 50%;
 }
 .lds-ring div {
@@ -122,39 +125,42 @@ footer p {
     transform: rotate(360deg);
   }
 }
-input[type = "radio"]{
-display:none;
+input[type="radio"] {
+  display: none;
 }
-.orden{
+.orden {
   direction: rtl;
   unicode-bidi: bidi-override;
 }
-label:hover{
-  color:orange;
+label:hover {
+  color: orange;
 }
-label:hover ~ label{
-  color:orange;
+label:hover ~ label {
+  color: orange;
 }
-input[type = "radio"]:checked ~ label{
-  color:orange;
+input[type="radio"]:checked ~ label {
+  color: orange;
 }
-.title{
+.title {
   display: flex;
   flex-direction: column;
-  
 }
-.noteList{
-  display:grid;
+.container {
+  justify-content: center;
+}
+.noteList {
+  display: grid;
   grid-gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 15%));
+  justify-content: left;
 }
-.note-content{
+.note-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.note{
-  background-color: #fef68a ;
+.note {
+  background-color: #fef68a;
   margin-bottom: 10px;
   border-radius: 10px;
   padding: 1rem;
@@ -165,16 +171,16 @@ input[type = "radio"]:checked ~ label{
   justify-content: space-between;
 }
 #newNote {
-  background-color: #67d7cc;
+  background-color: #67d7cc !important;
 }
-textarea{
+textarea {
   border: none;
   resize: none;
   background-color: #67d7cc;
 }
 
-textarea:focus{
-  outline:none;
+textarea:focus {
+  outline: none;
 }
 .switch {
   position: relative;
@@ -182,7 +188,7 @@ textarea:focus{
   width: 60px;
   height: 34px;
 }
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -195,8 +201,8 @@ textarea:focus{
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 .slider:before {
   position: absolute;
@@ -206,16 +212,16 @@ textarea:focus{
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196f3;
 }
 
 input:checked + .slider:before {
@@ -235,17 +241,17 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-#spinner-wrapper{
+#spinner-wrapper {
   position: fixed;
-  background-color: rgba(0,0,0,0.5);
-  width:100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
   height: 100%;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   z-index: 1021;
   display: none;
 }
 
-.night:checked > body{
+.night:checked > body {
   background-color: rgb(27, 27, 27);
 }
