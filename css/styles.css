@@ -173,13 +173,22 @@ input[type="radio"]:checked ~ label {
 #newNote {
   background-color: #67d7cc !important;
 }
-textarea {
+.addNote-text-area {
   border: none;
   resize: none;
   background-color: #67d7cc;
 }
 
-textarea:focus {
+.addNote-text-area:focus {
+  outline: none;
+}
+.note-text-area {
+  border: none;
+  resize: none;
+  background-color: #fef68a;
+}
+
+.note-text-area:focus {
   outline: none;
 }
 .switch {
