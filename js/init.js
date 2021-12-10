@@ -12,4 +12,4 @@ let currentDate = `${hour}:${minute}   ${mm}/${dd} `;
 let noteNumber = 0;
 
 let stickerData = [];
-// let paperBinArray = [];
+let paperBinArray = [];

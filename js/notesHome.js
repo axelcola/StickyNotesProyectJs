@@ -24,7 +24,7 @@ addNewNote = () => {
     document.getElementById("newTask").value = "";
     stickerData.push(noteData);
     localStorage.setItem("stickerJSON", JSON.stringify(stickerData));
-    console.log(stickerData);
+    location.reload();
   }
 };
 
@@ -32,10 +32,12 @@ addNewNote = () => {
 showNotes = () => {
   noteNumber = 0;
   stickerData = JSON.parse(localStorage.getItem("stickerJSON"));
+  stickerData.sort(
+    (a, b) => new Date(a.Date).getTime() > new Date(b.Date).getTime()
+  );
   for (let i = 0; i < stickerData.length; i++) {
     let noteData = stickerData[i];
 
-    let addNoteContent = document.getElementById("newTask").value;
     let stickyToAppend = "";
     addNoteContent = noteData.content;
     noteId = noteData.name;
@@ -65,14 +67,21 @@ editNote = (id, number) => {
   localStorage.setItem("stickerJSON", JSON.stringify(stickerData));
   console.log(id);
 };
-// delete function
+// deleteNote function
 deleteNote = (id) => {
+  if (localStorage.getItem("paperBinJSON") != null) {
+    paperBinArray = JSON.parse(localStorage.getItem("paperBinJSON"));
+  }
+  let noteToPaperBin = {};
   document.getElementById(id).remove();
-  let paperBinArray = stickerData.filter((item) => item.name == id);
+  noteToPaperBin = stickerData.filter((item) => item.name == id);
+  let noteData = noteToPaperBin[0];
+  paperBinArray.push(noteData);
+
   let newStickerarray = stickerData.filter((item) => item.name !== id);
-  localStorage.setItem("stickerJSON", JSON.stringify(newStickerarray));
   localStorage.setItem("paperBinJSON", JSON.stringify(paperBinArray));
-  console.log(paperBinArray);
+  localStorage.setItem("stickerJSON", JSON.stringify(newStickerarray));
+  location.reload();
 };
 
 // searcher
