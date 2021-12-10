@@ -14,8 +14,8 @@ showNotes = () => {
 				<textarea id="${contentId}" class="note-text-area">${addNoteContent}</textarea>
             <div class="note-content">
               <small>${noteDate}</small>
-              <span onclick="restoreNote('${noteId}')" type="button" class="fas fa-trash-alt"></span>
-              <span onclick="restoreNote('${noteId}')" type="button" class="fas fa-save"></span>
+              <span onclick="deletePerm('${noteId}')" type="button" class="fas fa-trash-alt"></span>
+              <span onclick="restoreNote('${noteId}')" type="button" class="fas fa-trash-restore-alt"></span>
             </div>
         </div>
     `;

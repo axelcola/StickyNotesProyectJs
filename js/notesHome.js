@@ -57,6 +57,14 @@ showNotes = () => {
     document.getElementById("noteList").innerHTML += stickyToAppend;
   }
 };
+notificationNumber = () => {
+  paperBinArray = JSON.parse(localStorage.getItem("paperBinJSON"));
+  if (paperBinArray.length != 0) {
+    let htmltoappend = "";
+    htmltoappend = `${paperBinArray.length}<i class="fas fa-trash"></i><span class="sr-only">(current)</span>`;
+    document.getElementById("notification").innerHTML = htmltoappend;
+  }
+};
 
 editNote = (id, number) => {
   let note = document.getElementById(id).value;
@@ -124,5 +132,6 @@ document.getElementById("newTask").onkeypress = function (e) {
 document.addEventListener("DOMContentLoaded", function (e) {
   if (localStorage.stickerJSON != undefined) {
     showNotes();
+    notificationNumber();
   }
 });
