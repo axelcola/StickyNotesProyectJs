@@ -59,7 +59,6 @@ showNotes = () => {
 };
 notificationNumber = () => {
   if (paperBinArray != null) {
-    0;
     paperBinArray = JSON.parse(localStorage.getItem("paperBinJSON"));
     if (paperBinArray.length != 0) {
       let htmltoappend = "";
