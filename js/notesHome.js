@@ -111,13 +111,14 @@ document.getElementById("searcher").addEventListener("input", (event) => {
       searchValue === ""
     ) {
       stickyToAppend += `
-        <div id="${noteData.name}" class="note col-md-4 col-lg-3 col-sm-6 mb-5">
-            <span>${noteData.content}</span>
-            <div class="note-content">
-              <small>${noteData.Date}</small>
-              <span onclick="deleteNote('${noteData.id}')" type="button" class="fas fa-trash-alt"></span>
-            </div>
-        </div>
+			<div id="${noteId}" class="note col-md-4 col-lg-3 col-sm-6 mb-5">
+			<textarea id="${contentId}" class="note-text-area">${addNoteContent}</textarea>
+					<div class="note-content">
+						<small>${noteDate}</small>
+						<span onclick="deleteNote('${noteId}')" type="button" class="fas fa-trash-alt"></span>
+						<span onclick="editNote('${contentId}',  ${noteNumber})" type="button" class="fas fa-save"></span>
+					</div>
+			</div>
     `;
       document.getElementById("noteList").innerHTML = stickyToAppend;
     }
