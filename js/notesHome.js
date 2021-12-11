@@ -58,11 +58,14 @@ showNotes = () => {
   }
 };
 notificationNumber = () => {
-  paperBinArray = JSON.parse(localStorage.getItem("paperBinJSON"));
-  if (paperBinArray.length != 0) {
-    let htmltoappend = "";
-    htmltoappend = `${paperBinArray.length}<i class="fas fa-trash"></i><span class="sr-only">(current)</span>`;
-    document.getElementById("notification").innerHTML = htmltoappend;
+  if (paperBinArray != null) {
+    0;
+    paperBinArray = JSON.parse(localStorage.getItem("paperBinJSON"));
+    if (paperBinArray.length != 0) {
+      let htmltoappend = "";
+      htmltoappend = `${paperBinArray.length}<i class="fas fa-trash"></i><span class="sr-only">(current)</span>`;
+      document.getElementById("notification").innerHTML = htmltoappend;
+    }
   }
 };
 
