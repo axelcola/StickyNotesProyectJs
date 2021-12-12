@@ -1,4 +1,3 @@
-paperBinArray = [];
 // addNote function
 addNewNote = () => {
   let noteData = {};
@@ -111,14 +110,14 @@ document.getElementById("searcher").addEventListener("input", (event) => {
       searchValue === ""
     ) {
       stickyToAppend += `
-			<div id="${noteId}" class="note col-md-4 col-lg-3 col-sm-6 mb-5">
-				<textarea id="${contentId}" class="note-text-area">${addNoteContent}</textarea>
-            <div class="note-content">
-              <small>${noteDate}</small>
-              <span onclick="deleteNote('${noteId}')" type="button" class="fas fa-trash-alt"></span>
-              <span onclick="editNote('${contentId}',  ${noteNumber})" type="button" class="fas fa-save"></span>
-            </div>
-        </div>
+      <div id="${noteId}" class="note col-md-4 col-lg-3 col-sm-6 mb-5">
+      <textarea id="${contentId}" class="note-text-area">${addNoteContent}</textarea>
+          <div class="note-content">
+            <small>${noteDate}</small>
+            <span onclick="deleteNote('${noteId}')" type="button" class="fas fa-trash-alt"></span>
+            <span onclick="editNote('${contentId}',  ${noteNumber})" type="button" class="fas fa-save"></span>
+          </div>
+      </div>
     `;
       document.getElementById("noteList").innerHTML = stickyToAppend;
     }
@@ -134,6 +133,8 @@ document.getElementById("newTask").onkeypress = function (e) {
 document.addEventListener("DOMContentLoaded", function (e) {
   if (localStorage.stickerJSON != undefined) {
     showNotes();
-    notificationNumber();
+    if (localStorage.getItem("paperBinJSON") != null) {
+      notificationNumber();
+    }
   }
 });
