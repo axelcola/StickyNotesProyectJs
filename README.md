@@ -14,8 +14,8 @@
 
 <!-- • Como usuario, puedo ver si la papelera tiene Publicaciones mirando el icono de papelera. -->
 
-• Como usuario, puedo cambiarle el color a las notas.
-
 <!-- • Como usuario, todas las publicaciones en el espacio de trabajo y la papelera se guardan en LocalStorage. -->
 
-Las características enumeradas anteriormente son obligatorias y se espera que se desarrollen con algo de estilo. -->
+<!-- Las características enumeradas anteriormente son obligatorias y se espera que se desarrollen con algo de estilo. -->
+
+https://axelcola.github.io/StickyNotesProyectJs/
