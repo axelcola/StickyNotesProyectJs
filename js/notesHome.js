@@ -3,23 +3,24 @@ addNewNote = () => {
   let noteData = {};
   let addNoteContent = document.getElementById("newTask").value;
   let stickyToAppend = "";
-  if (addNoteContent != "") {
+  if (addNoteContent) {
+    let noteId = ` noteId${noteNumber} `;
     let contentId = `content${noteNumber}`;
+    let noteDate = currentDate;
     noteData.content = addNoteContent;
     noteData.contenId = contentId;
-    noteData.name = ` noteId${noteNumber} `;
+    noteData.name = noteId;
     noteData.Date = currentDate;
     stickyToAppend = `
-        <div id="noteId${noteNumber}" class="note col-md-4 col-lg-3 col-sm-6 mb-5">
-            <textarea id="${contentId}" class="note-text-area">${addNoteContent}</textarea>
+				<div id="${noteId}" class="note col-md-4 col-lg-3 col-sm-6 mb-5">
+				<textarea id="${contentId}" class="note-text-area">${addNoteContent}</textarea>
             <div class="note-content">
-              <small>${currentDate}</small>
-              <span onclick="deleteNote('noteId${noteNumber}')" type="button" class="fas fa-trash-alt"></span>
-              <span onclick="editNote(${contentId}, ${noteNumber})" type="button" class="fas fa-save"></span>
+              <small>${noteDate}</small>
+              <span onclick="deleteNote('${noteId}')" type="button" class="fas fa-trash-alt"></span>
+              <span onclick="editNote('${contentId}',  ${noteNumber})" type="button" class="fas fa-save"></span>
             </div>
         </div>
     `;
-    noteNumber++;
     document.getElementById("noteList").innerHTML += stickyToAppend;
     document.getElementById("newTask").value = "";
     stickerData.push(noteData);
@@ -77,16 +78,17 @@ editNote = (id, number) => {
 };
 // deleteNote function
 deleteNote = (id) => {
+  let noteToPaperBin = {};
+  let noteData = noteToPaperBin[0];
+  let newStickerarray = stickerData.filter((item) => item.name !== id);
+
   if (localStorage.getItem("paperBinJSON") != null) {
     paperBinArray = JSON.parse(localStorage.getItem("paperBinJSON"));
   }
-  let noteToPaperBin = {};
   document.getElementById(id).remove();
   noteToPaperBin = stickerData.filter((item) => item.name == id);
-  let noteData = noteToPaperBin[0];
   paperBinArray.push(noteData);
 
-  let newStickerarray = stickerData.filter((item) => item.name !== id);
   localStorage.setItem("paperBinJSON", JSON.stringify(paperBinArray));
   localStorage.setItem("stickerJSON", JSON.stringify(newStickerarray));
   location.reload();
@@ -111,24 +113,28 @@ document.getElementById("searcher").addEventListener("input", (event) => {
     ) {
       stickyToAppend += `
       <div id="${noteId}" class="note col-md-4 col-lg-3 col-sm-6 mb-5">
-      <textarea id="${contentId}" class="note-text-area">${addNoteContent}</textarea>
-          <div class="note-content">
-            <small>${noteDate}</small>
-            <span onclick="deleteNote('${noteId}')" type="button" class="fas fa-trash-alt"></span>
-            <span onclick="editNote('${contentId}',  ${noteNumber})" type="button" class="fas fa-save"></span>
-          </div>
-      </div>
+				<textarea id="${contentId}" class="note-text-area">${addNoteContent}</textarea>
+            <div class="note-content">
+              <small>${noteDate}</small>
+              <span onclick="deleteNote('${noteId}')" type="button" class="fas fa-trash-alt"></span>
+              <span onclick="editNote('${contentId}',  ${noteNumber})" type="button" class="fas fa-save"></span>
+            </div>
+        </div>
     `;
       document.getElementById("noteList").innerHTML = stickyToAppend;
     }
   }
 });
+changeColor = (id, color) => {
+  document.getElementById(id).style.backgroundColor = color;
+};
 //  Run function with enter key
 document.getElementById("newTask").onkeypress = function (e) {
   if ((e.keyCode == 13 || e.keyCode == 10) && e.ctrlKey == true) {
     addNewNote();
   }
 };
+
 // when the load page
 document.addEventListener("DOMContentLoaded", function (e) {
   if (localStorage.stickerJSON != undefined) {

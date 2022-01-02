@@ -32,6 +32,14 @@ deletePerm = (id) => {
     location.reload();
   }
 };
+notificationNumber = () => {
+  paperBinArray = JSON.parse(localStorage.getItem("paperBinJSON"));
+  if (paperBinArray.length != 0) {
+    let htmltoappend = "";
+    htmltoappend = `${paperBinArray.length}<i class="fas fa-trash"></i><span class="sr-only">(current)</span>`;
+    document.getElementById("notification").innerHTML = htmltoappend;
+  }
+};
 restoreNote = (id) => {
   if (localStorage.getItem("stickerJSON") != null) {
     stickerData = JSON.parse(localStorage.getItem("stickerJSON"));
@@ -61,5 +69,8 @@ deleteAll = () => {
 document.addEventListener("DOMContentLoaded", function (e) {
   if (localStorage.paperBinJSON != undefined) {
     showNotes();
+    if (localStorage.getItem("paperBinJSON") != null) {
+      notificationNumber();
+    }
   }
 });
