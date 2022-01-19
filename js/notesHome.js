@@ -79,18 +79,18 @@ editNote = (id, number) => {
 // deleteNote function
 deleteNote = (id) => {
   let noteToPaperBin = {};
-  let noteData = noteToPaperBin[0];
   let newStickerarray = stickerData.filter((item) => item.name !== id);
 
-  if (localStorage.getItem("paperBinJSON") != null) {
+  if (localStorage.getItem("paperBinJSON")) {
     paperBinArray = JSON.parse(localStorage.getItem("paperBinJSON"));
   }
   document.getElementById(id).remove();
   noteToPaperBin = stickerData.filter((item) => item.name == id);
-  paperBinArray.push(noteData);
+  paperBinArray.push(noteToPaperBin[0]);
 
   localStorage.setItem("paperBinJSON", JSON.stringify(paperBinArray));
   localStorage.setItem("stickerJSON", JSON.stringify(newStickerarray));
+  console.log(paperBinArray);
   location.reload();
 };
 
@@ -125,9 +125,7 @@ document.getElementById("searcher").addEventListener("input", (event) => {
     }
   }
 });
-changeColor = (id, color) => {
-  document.getElementById(id).style.backgroundColor = color;
-};
+
 //  Run function with enter key
 document.getElementById("newTask").onkeypress = function (e) {
   if ((e.keyCode == 13 || e.keyCode == 10) && e.ctrlKey == true) {
