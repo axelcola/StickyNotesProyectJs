@@ -1,5 +1,5 @@
 showNotes = () => {
-  noteNumber = 0;
+  // noteNumber = 0;
   paperBinArray = JSON.parse(localStorage.getItem("paperBinJSON"));
   for (let i = 0; i < paperBinArray.length; i++) {
     let noteData = paperBinArray[i];
@@ -19,8 +19,9 @@ showNotes = () => {
             </div>
         </div>
     `;
-    noteNumber++;
+    // noteNumber++;
     document.getElementById("noteList").innerHTML += stickyToAppend;
+    getNumber();
   }
 };
 // deleteNote function

@@ -4,8 +4,8 @@ addNewNote = () => {
   let addNoteContent = document.getElementById("newTask").value;
   let stickyToAppend = "";
   if (addNoteContent) {
-    let noteId = ` noteId${noteNumber} `;
-    let contentId = `content${noteNumber}`;
+    let noteId = ` noteId${noteNumber - 1} `;
+    let contentId = `content${noteNumber - 1}`;
     let noteDate = currentDate;
     noteData.content = addNoteContent;
     noteData.contenId = contentId;
@@ -17,21 +17,23 @@ addNewNote = () => {
             <div class="note-content">
               <small>${noteDate}</small>
               <span onclick="deleteNote('${noteId}')" type="button" class="fas fa-trash-alt"></span>
-              <span onclick="editNote('${contentId}',  ${noteNumber})" type="button" class="fas fa-save"></span>
+              <span onclick="editNote('${contentId}',  ${
+      noteNumber - 1
+    })" type="button" class="fas fa-save"></span>
             </div>
         </div>
     `;
+    noteNumber++;
     document.getElementById("noteList").innerHTML += stickyToAppend;
     document.getElementById("newTask").value = "";
     stickerData.push(noteData);
     localStorage.setItem("stickerJSON", JSON.stringify(stickerData));
-    location.reload();
+    setNumber();
   }
 };
 
 //showNotes after refresh the page
 showNotes = () => {
-  noteNumber = 0;
   stickerData = JSON.parse(localStorage.getItem("stickerJSON"));
   stickerData.sort(
     (a, b) => new Date(a.Date).getTime() > new Date(b.Date).getTime()
@@ -50,12 +52,12 @@ showNotes = () => {
             <div class="note-content">
               <small>${noteDate}</small>
               <span onclick="deleteNote('${noteId}')" type="button" class="fas fa-trash-alt"></span>
-              <span onclick="editNote('${contentId}',  ${noteNumber})" type="button" class="fas fa-save"></span>
+              <span onclick="editNote('${contentId}')" type="button" class="fas fa-save"></span>
             </div>
         </div>
     `;
-    noteNumber++;
     document.getElementById("noteList").innerHTML += stickyToAppend;
+    getNumber();
   }
 };
 notificationNumber = () => {
@@ -67,15 +69,25 @@ notificationNumber = () => {
   }
 };
 
-editNote = (id, number) => {
+editNote = (id) => {
+  let number = id.slice(7);
+  console.log(number);
   let note = document.getElementById(id).value;
   stickerData[number].content = note;
   stickerData[number].Date = currentDate;
   console.log(stickerData[number].content);
-  location.reload();
   localStorage.setItem("stickerJSON", JSON.stringify(stickerData));
   console.log(id);
 };
+// editNote = (id, number) => {
+//   let note = document.getElementById(id).value;
+//   stickerData[number].content = note;
+//   stickerData[number].Date = currentDate;
+//   console.log(stickerData[number].content);
+//   location.reload();
+//   localStorage.setItem("stickerJSON", JSON.stringify(stickerData));
+//   console.log(id);
+// };
 // deleteNote function
 deleteNote = (id) => {
   let noteToPaperBin = {};
@@ -117,7 +129,7 @@ document.getElementById("searcher").addEventListener("input", (event) => {
             <div class="note-content">
               <small>${noteDate}</small>
               <span onclick="deleteNote('${noteId}')" type="button" class="fas fa-trash-alt"></span>
-              <span onclick="editNote('${contentId}',  ${noteNumber})" type="button" class="fas fa-save"></span>
+              <span onclick="editNote('${contentId}')" type="button" class="fas fa-save"></span>
             </div>
         </div>
     `;
