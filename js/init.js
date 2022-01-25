@@ -9,7 +9,7 @@ let second = today.getSeconds();
 let currentDate = `${hour}:${minute}   ${mm}/${dd} `;
 
 // Counter of notes
-let noteNumber = 0;
+let noteNumber = 1;
 
 getNumber = () => {
   if (localStorage.getItem("storageNumber")) {
