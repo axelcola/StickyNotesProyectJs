@@ -54,6 +54,7 @@ restoreNote = (id) => {
     let newPaperBinArray = paperBinArray.filter((item) => item.name !== id);
     localStorage.setItem("paperBinJSON", JSON.stringify(newPaperBinArray));
     localStorage.setItem("stickerJSON", JSON.stringify(stickerData));
+    location.reload();
   }
 };
 deleteAll = () => {
