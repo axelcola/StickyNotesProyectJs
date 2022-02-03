@@ -29,6 +29,7 @@ addNewNote = () => {
     stickerData.push(noteData);
     localStorage.setItem("stickerJSON", JSON.stringify(stickerData));
     setNumber();
+    document.getElementById("newTask").focus();
   }
 };
 
@@ -139,7 +140,7 @@ document.getElementById("searcher").addEventListener("input", (event) => {
 });
 
 //  Run function with enter key
-document.getElementById("newTask").onkeypress = function (e) {
+document.onkeypress = function (e) {
   if ((e.keyCode == 13 || e.keyCode == 10) && e.ctrlKey == true) {
     addNewNote();
   }

@@ -161,7 +161,7 @@ input[type="radio"]:checked ~ label {
 }
 .note {
   background-color: #fef68a;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
   border-radius: 10px;
   padding: 1rem;
   min-height: 170px;
@@ -177,6 +177,8 @@ input[type="radio"]:checked ~ label {
   border: none;
   resize: none;
   background-color: #67d7cc;
+  min-height: px;
+  max-width: 250px;
 }
 
 .addNote-text-area:focus {
