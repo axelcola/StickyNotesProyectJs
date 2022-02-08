@@ -55,8 +55,29 @@
 				<div id="noteList" class="row-mt-5 noteList ">
 					<div id="newNote" class="note noteList">
 						<textarea autofocus class="addNote-text-area" id="newTask" placeholder="Add a new task.."></textarea>
-						<div class="note-content" <span onclick="addNewNote()" type="button" class="icon"><i
-								class="fas fa-save"></i></span>
+						<div class="dropdown">
+							<div class="note-content" <span onclick="addNewNote()" type="button" class="icon"><i
+									class="fas fa-save"></i></span>
+								<div class="containter">
+
+									<button class="btn btn-none dropdown-toggle-none" type="button" id="dropdownMenuButton"
+										data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<i id="buttonDrop" class="fas fa-circle yellow"></i>
+									</button>
+
+									<div id="colorDrop" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+										<input type="radio" id="yellow" name="color" value="yellow" checked>
+										<label for="yellow" class="fas fa-circle yellow"></label>
+										<input type="radio" id="green" name="color" value="green">
+										<label for="green" class="fas fa-circle green"></label>
+										<input type="radio" id="blue" name="color" value="blue">
+										<label for="blue" class="fas fa-circle blue"></label>
+										<input type="radio" id="violet" name="color" value="violet">
+										<label for="violet" class="fas fa-circle violet"></label>
+
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

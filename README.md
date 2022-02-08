@@ -16,4 +16,3 @@
 
 <!-- • Como usuario, todas las publicaciones en el espacio de trabajo y la papelera se guardan en LocalStorage. -->
 
-Las características enumeradas anteriormente son obligatorias y se espera que se desarrollen con algo de estilo. -->

@@ -170,6 +170,22 @@ input[type="radio"]:checked ~ label {
   flex-direction: column;
   justify-content: space-between;
 }
+.note-yellow {
+  background-color: #fef68a !important;
+}
+.note-blue {
+  background-color: rgb(97, 97, 253) !important;
+}
+.note-green {
+  background-color: green !important;
+}
+.note-violet {
+  background-color: violet !important;
+}
+.note-pink {
+  background-color: pink !important;
+}
+
 #newNote {
   background-color: #67d7cc !important;
 }
@@ -203,6 +219,26 @@ input[type="radio"]:checked ~ label {
   opacity: 0;
   width: 0;
   height: 0;
+}
+
+.colors {
+  margin: 5px;
+}
+
+.yellow {
+  color: #fef68a !important;
+}
+.blue {
+  color: blue !important;
+}
+.green {
+  color: green !important;
+}
+.violet {
+  color: violet !important;
+}
+.pink {
+  color: pink !important;
 }
 .slider {
   position: absolute;

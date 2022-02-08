@@ -1,3 +1,6 @@
+let colorSelected;
+let currentColorAddNote;
+
 // addNote function
 addNewNote = () => {
   let noteData = {};
@@ -12,7 +15,7 @@ addNewNote = () => {
     noteData.name = noteId;
     noteData.Date = currentDate;
     stickyToAppend = `
-				<div id="${noteId}" class="note col-md-4 col-lg-3 col-sm-6 mb-5">
+				<div id="${noteId}" class="note col-md-4 col-lg-3 col-sm-6 mb-5 ">
 				<textarea id="${contentId}" class="note-text-area">${addNoteContent}</textarea>
             <div class="note-content">
               <small>${noteDate}</small>
@@ -48,8 +51,8 @@ showNotes = () => {
     noteDate = noteData.Date;
     contentId = noteData.contenId;
     stickyToAppend = `
-        <div id="${noteId}" class="note col-md-4 col-lg-3 col-sm-6 mb-5">
-				<textarea id="${contentId}" class="note-text-area">${addNoteContent}</textarea>
+        <div id="${noteId}" class="note note-yellow col-md-4 col-lg-3 col-sm-6 mb-5 ">
+				<textarea id="${contentId}" class="note-text-area note-yellow ">${addNoteContent}</textarea>
             <div class="note-content">
               <small>${noteDate}</small>
               <span onclick="deleteNote('${noteId}')" type="button" class="fas fa-trash-alt"></span>
@@ -70,6 +73,22 @@ notificationNumber = () => {
   }
 };
 
+color = () => {
+  let radioColor = document.querySelectorAll('input[name="color"]');
+
+  radioColor.forEach((elem) => {
+    elem.addEventListener("change", () => {
+      colorSelected = document.querySelector(
+        'input[name="color"]:checked'
+      ).value;
+      currentColorAddNote = document.getElementById("buttonDrop").classList[2];
+      document
+        .getElementById("buttonDrop")
+        .classList.replace(currentColorAddNote, colorSelected);
+    });
+  });
+};
+
 editNote = (id) => {
   let number = id.slice(7);
   console.log(number);
@@ -80,16 +99,7 @@ editNote = (id) => {
   localStorage.setItem("stickerJSON", JSON.stringify(stickerData));
   console.log(id);
 };
-// editNote = (id, number) => {
-//   let note = document.getElementById(id).value;
-//   stickerData[number].content = note;
-//   stickerData[number].Date = currentDate;
-//   console.log(stickerData[number].content);
-//   location.reload();
-//   localStorage.setItem("stickerJSON", JSON.stringify(stickerData));
-//   console.log(id);
-// };
-// deleteNote function
+
 deleteNote = (id) => {
   let noteToPaperBin = {};
   let newStickerarray = stickerData.filter((item) => item.name !== id);
@@ -153,5 +163,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     if (localStorage.getItem("paperBinJSON") != null) {
       notificationNumber();
     }
+    color();
   }
 });
