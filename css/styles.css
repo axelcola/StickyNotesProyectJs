@@ -177,13 +177,10 @@ input[type="radio"]:checked ~ label {
   background-color: rgb(97, 97, 253) !important;
 }
 .note-green {
-  background-color: green !important;
+  background-color: rgb(111, 197, 111) !important;
 }
 .note-violet {
-  background-color: violet !important;
-}
-.note-pink {
-  background-color: pink !important;
+  background-color: rgb(238, 171, 238) !important;
 }
 
 #newNote {

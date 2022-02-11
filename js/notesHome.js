@@ -10,13 +10,15 @@ addNewNote = () => {
     let noteId = ` noteId${noteNumber - 1} `;
     let contentId = `content${noteNumber - 1}`;
     let noteDate = currentDate;
+    let color = document.querySelector('input[name="color"]:checked').value;
     noteData.content = addNoteContent;
     noteData.contenId = contentId;
     noteData.name = noteId;
     noteData.Date = currentDate;
+    noteData.color = color;
     stickyToAppend = `
-				<div id="${noteId}" class="note col-md-4 col-lg-3 col-sm-6 mb-5 ">
-				<textarea id="${contentId}" class="note-text-area">${addNoteContent}</textarea>
+				<div id="${noteId}" class="note note-${color} col-md-4 col-lg-3 col-sm-6 mb-5 ">
+				<textarea id="${contentId}" class="note-text-area note-${color}">${addNoteContent}</textarea>
             <div class="note-content">
               <small>${noteDate}</small>
               <span onclick="deleteNote('${noteId}')" type="button" class="fas fa-trash-alt"></span>
@@ -33,6 +35,7 @@ addNewNote = () => {
     localStorage.setItem("stickerJSON", JSON.stringify(stickerData));
     setNumber();
     document.getElementById("newTask").focus();
+    location.reload();
   }
 };
 
@@ -44,15 +47,15 @@ showNotes = () => {
   );
   for (let i = 0; i < stickerData.length; i++) {
     let noteData = stickerData[i];
-
     let stickyToAppend = "";
     addNoteContent = noteData.content;
     noteId = noteData.name;
     noteDate = noteData.Date;
     contentId = noteData.contenId;
+    color = noteData.color;
     stickyToAppend = `
-        <div id="${noteId}" class="note note-yellow col-md-4 col-lg-3 col-sm-6 mb-5 ">
-				<textarea id="${contentId}" class="note-text-area note-yellow ">${addNoteContent}</textarea>
+        <div id="${noteId}" class="note note-${color} col-md-4 col-lg-3 col-sm-6 mb-5 ">
+				<textarea id="${contentId}" class="note-text-area note-${color} ">${addNoteContent}</textarea>
             <div class="note-content">
               <small>${noteDate}</small>
               <span onclick="deleteNote('${noteId}')" type="button" class="fas fa-trash-alt"></span>
@@ -73,7 +76,7 @@ notificationNumber = () => {
   }
 };
 
-color = () => {
+colorRadio = () => {
   let radioColor = document.querySelectorAll('input[name="color"]');
 
   radioColor.forEach((elem) => {
@@ -163,6 +166,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     if (localStorage.getItem("paperBinJSON") != null) {
       notificationNumber();
     }
-    color();
+    colorRadio();
   }
 });
