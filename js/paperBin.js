@@ -9,9 +9,10 @@ showNotes = () => {
     noteId = noteData.name;
     noteDate = noteData.Date;
     contentId = noteData.contenId;
+    color = noteData.color;
     stickyToAppend = `
-        <div id="${noteId}" class="note col-md-4 col-lg-3 col-sm-6 mb-5">
-				<textarea id="${contentId}" class="note-text-area">${addNoteContent}</textarea>
+        <div id="${noteId}" class="note note-${color} col-md-4 col-lg-3 col-sm-6 mb-5">
+				<textarea id="${contentId}" class="note-text-area note-${color}">${addNoteContent}</textarea>
             <div class="note-content">
               <small>${noteDate}</small>
               <span onclick="deletePerm('${noteId}')" type="button" class="fas fa-trash-alt"></span>

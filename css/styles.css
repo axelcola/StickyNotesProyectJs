@@ -226,13 +226,13 @@ input[type="radio"]:checked ~ label {
   color: #fef68a !important;
 }
 .blue {
-  color: blue !important;
+  color: rgb(97, 97, 253) !important;
 }
 .green {
-  color: green !important;
+  color: rgb(60, 175, 60) !important;
 }
 .violet {
-  color: violet !important;
+  color: rgb(238, 171, 238) !important;
 }
 .pink {
   color: pink !important;
