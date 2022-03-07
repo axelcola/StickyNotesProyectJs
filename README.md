@@ -5,7 +5,7 @@ Check out the final result [here](https://axelcola.github.io/StickyNotesProyectJ
 
 I worked on this page to put into practice my knowledge of Html, Css, Javascript and bootstrap.
 
-This is a list of functions that the page should have that I got on the internet.
+This is a list of functions that the page should have that I got on the internet:
 
 
 
