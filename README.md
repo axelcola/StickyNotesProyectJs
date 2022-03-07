@@ -1,6 +1,9 @@
-# ToDoApp with JS
+<h1>ToDoApp with JS</h1>
 
-<!-- Funciones C2
+<h2> Check out the final result <a href=" https://axelcola.github.io/StickyNotesProyectJs/">here</a></h2>
+
+
+<!-- Funciones C2 -->
 
 <!-- • Como usuario, puedo crear un nuevo Post it. -->
 
