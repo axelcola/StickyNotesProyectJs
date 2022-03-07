@@ -3,28 +3,19 @@
 Check out the final result [here](https://axelcola.github.io/StickyNotesProyectJs/).
 
 
-<!-- Funciones C2 -->
+I worked on this page to put into practice my knowledge of Html, Css, Javascript and bootstrap.
 
-<!-- • Como usuario, puedo crear un nuevo Post it. -->
+This is a list of functions that the page should have that I got on the internet
 
-<!-- • Como usuario, puedo ver todas las Publicaciones en el espacio de trabajo. -->
 
-<!-- • Como usuario, puedo editar una publicación. -->
-
-<!-- • Como usuario, puedo ver la hora de la última edición. -->
-
-<!-- • Como usuario, puedo mover una publicación a la papelera. -->
-
-<!-- • Como usuario, puedo abrir la papelera para ver todas las Publicaciones que se han movido allí. -->
-
-<!-- • Como usuario, puedo mover una publicación de la papelera al espacio de trabajo. -->
-
-<!--• Como usuario, puedo eliminar permanentemente todas las Publicaciones en la papelera. -->
-
-<!-- • Como usuario, puedo ver si la papelera tiene Publicaciones mirando el icono de papelera. -->
-
-<!-- • Como usuario, todas las publicaciones en el espacio de trabajo y la papelera se guardan en LocalStorage. -->
-
-<!-- • Como usuario, puedo elegir diferentes colores para cada nota. -->
-
-<!-- • Como usuario, puedo editar los colores de cada nota. -->
+ • As user, i can create a new Post it.
+ • As user, i can see all the Posts in the workspace.
+ • As user, i can edit a Post.
+ • As user, i can see the date of the last modification.
+ • As user, i can move a Post to the Paper Bin. 
+ • As user, i can open the Paper Bin to see all the post that gave been moved there. 
+ • As user, i can restore a Post from the Paper Bin to the workspace.
+ • As user, i can delete a Post permanently. 
+ • As user, i can see if the Paper Bin have posts looking at the Paper Bin icon.
+ • As user, all the Posts on the Workspace and Paper Bin are save to LocalStorage.
+ • As user, I can select diferents colors for new Posts.
