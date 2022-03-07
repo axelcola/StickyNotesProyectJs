@@ -1,6 +1,6 @@
 <h1>ToDoApp with JS</h1>
 
-<h2> Check out the final result <a href=" https://axelcola.github.io/StickyNotesProyectJs/">here</a></h2>
+Check out the final result [here](https://axelcola.github.io/StickyNotesProyectJs/).
 
 
 <!-- Funciones C2 -->
