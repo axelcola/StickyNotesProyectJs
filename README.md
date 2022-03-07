@@ -1,11 +1,11 @@
 <h1>ToDoApp with JS</h1>
 
-Check out the final result [here](https://axelcola.github.io/StickyNotesProyectJs/).
+<h2> Check out the final result [here](https://axelcola.github.io/StickyNotesProyectJs/).
 
 
-<p>I worked on this page to put into practice my knowledge of Html, Css, Javascript and bootstrap.</p>
+I worked on this page to put into practice my knowledge of Html, Css, Javascript and bootstrap.
 
-<p>This is a list of functions that the page should have that I got on the internet</p>
+This is a list of functions that the page should have that I got on the internet</h2>
 
 
 
