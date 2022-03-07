@@ -3,9 +3,9 @@
 Check out the final result [here](https://axelcola.github.io/StickyNotesProyectJs/).
 
 
-<h2>I worked on this page to put into practice my knowledge of Html, Css, Javascript and bootstrap.</h2>
+<p>I worked on this page to put into practice my knowledge of Html, Css, Javascript and bootstrap.</p>
 
-<h2>This is a list of functions that the page should have that I got on the internet</h2>
+<p>This is a list of functions that the page should have that I got on the internet</p>
 
 
 
