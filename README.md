@@ -8,6 +8,9 @@ I worked on this page to put into practice my knowledge of Html, Css, Javascript
 This is a list of functions that the page should have that I got on the internet
 
 
+
+
+
  • As user, i can create a new Post it.
  
  • As user, i can see all the Posts in the workspace.
